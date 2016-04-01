@@ -8,7 +8,7 @@ class jenkins_backup_to_s3 {
     ensure  => file,
     owner   => 'root',
     group   => 'root',
-    mode    => '0775'
+    mode    => '0775',
     content => template('jenkins_backup_to_s3/jenkins_backup.sh.erb'),
   }
 
