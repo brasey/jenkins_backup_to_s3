@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BUCKET='<%= @bucket %>'
+PATH='<%= @path %>'
+JENKINS_DIR='<%= @jenkins_dir %>'
+
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+ARCHIVE=jenkins_data.$TIMESTAMP.tgz
+
+
+nice -n 19 tar --exclude-from $JENKINS_DIR/jenkins_backup_exclusions.txt -zcf $ARCHIVE -C $JENKINS_DIR .
+
+aws s3 mv $ARCHIVE s3://${BUCKET}/${PATH}/jenkins_data.tgz
