@@ -5,6 +5,7 @@ class jenkins_backup_to_s3 {
   $jenkins_dir = hiera('jenkins_dir')
   $date_cmd    = hiera('date_cmd')
   $nice_cmd    = hiera('nice_cmd')
+  $tar_cmd     = hiera('tar_cmd')
   $aws_cmd     = hiera('aws_cmd')
 
   file { '/etc/cron.daily/jenkins_backup.sh':
