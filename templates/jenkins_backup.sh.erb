@@ -3,11 +3,14 @@
 BUCKET='<%= @bucket %>'
 PATH='<%= @path %>'
 JENKINS_DIR='<%= @jenkins_dir %>'
+DATE_CMD='<%= @date_cmd %>'
+NICE_CMD='<%= @nice_cmd %>'
+AWS_CMD='<%= @aws_cmd %>'
 
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+TIMESTAMP=$(${DATE_CMD} +"%Y-%m-%d_%H-%M-%S")
 ARCHIVE=jenkins_data.$TIMESTAMP.tgz
 
 
-nice -n 19 tar --exclude-from $JENKINS_DIR/jenkins_backup_exclusions.txt -zcf $ARCHIVE -C $JENKINS_DIR .
+${NICE_CMD} -n 19 tar --exclude-from $JENKINS_DIR/jenkins_backup_exclusions.txt -zcf $ARCHIVE -C $JENKINS_DIR .
 
-aws s3 mv $ARCHIVE s3://${BUCKET}/${PATH}/jenkins_data.tgz
+${AWS_CMD} s3 mv $ARCHIVE s3://${BUCKET}/${PATH}/jenkins_data.tgz
