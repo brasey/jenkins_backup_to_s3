@@ -21,7 +21,7 @@ class jenkins_backup_to_s3 {
     owner  => 'root',
     group  => 'root',
     mode   => '0664',
-    source => 'puppet:///jenkins_backup_to_s3/modules/jenkins_backup_exclusions.txt',
+    source => 'puppet:///modules/jenkins_backup_to_s3/jenkins_backup_exclusions.txt',
   }
 
 }
