@@ -12,6 +12,6 @@ TIMESTAMP=$(${DATE_CMD} +"%Y-%m-%d_%H-%M-%S")
 ARCHIVE=jenkins_data.${TIMESTAMP}.tgz
 
 
-${NICE_CMD} -n 19 ${TAR_CMD} --exclude-from ${JENKINS_DIR}/jenkins_backup_exclusions.txt -zcf ${ARCHIVE} -C $JENKINS_DIR} .
+${NICE_CMD} -n 19 ${TAR_CMD} --exclude-from ${JENKINS_DIR}/jenkins_backup_exclusions.txt -zcf ${ARCHIVE} -C ${JENKINS_DIR} .
 
 ${AWS_CMD} s3 mv ${ARCHIVE} s3://${BUCKET}/${KEY}/jenkins_data.tgz
