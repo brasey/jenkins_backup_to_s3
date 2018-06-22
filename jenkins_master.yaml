@@ -1,0 +1,8 @@
+---
+bucket: 'your-bucketname-here'
+path: 'jenkins/backup'
+jenkins_dir: '/var/lib/jenkins'
+date_cmd: '/usr/bin/date'
+nice_cmd: '/usr/bin/nice'
+tar_cmd: '/usr/bin/tar'
+aws_cmd: '/usr/bin/aws'

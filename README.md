@@ -2,10 +2,11 @@
 
 ## Summary
 
-Backup your Jenkins to an S3 bucket
+Backup your Jenkins to an S3 bucket using Puppet.
 
 Just a cron job and a script to back up your Jenkins master.
 
+A sample hiera yaml is included.
 
 ## Assumptions
 
